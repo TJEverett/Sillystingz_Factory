@@ -4,5 +4,29 @@
 
 <h1>Dr. Sillystringz's Factory</h1>
 
-<p>@Html.ActionLink("Track by Engineers", "Index", "Engineers")</p>
-<p>@Html.ActionLink("Track by Machines", "Index", "Machines")</p>
+<div class="row">
+  <div class="col-sm-6">
+    <h4>Engineers:</h4>
+    <ul>
+      @foreach (var engineer in ViewBag.engineers)
+      {
+        <li>@Html.ActionLink($"{engineer.NameFirst} {engineer.NameLast}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+      }
+    </ul>
+    <br>
+    <p>@Html.ActionLink("Track by Engineers", "Index", "Engineers")</p>
+  </div>
+  <div class="col-sm-6">
+    <h4>Machines:</h4>
+    <ul>
+      @foreach (var machine in ViewBag.Machines)
+      {
+        <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId })</li>
+      }
+    </ul>
+    <br>
+    <p>@Html.ActionLink("Track by Machines", "Index", "Machines")</p>
+  </div>
+</div>
+
+
